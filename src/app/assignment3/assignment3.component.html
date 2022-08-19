@@ -1,0 +1,7 @@
+<button (click)="onDisplayDetails()" class="btn btn-primary">{{ buttonLabel }}</button>
+
+<p *ngIf="displayDetails">{{ secretPassword }}</p>
+
+<div *ngFor="let click of btnClicks; let i = index">
+  <p [ngStyle]="{backgroundColor: i >= 5 ? 'blue' : 'transparent'}" [ngClass]="{'white-color': i >= 5}">Click # {{ click }}</p>
+</div>

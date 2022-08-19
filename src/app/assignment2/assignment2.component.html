@@ -1,0 +1,10 @@
+
+<div class="form-group">
+  <label>{{ userNameLabel }}</label>
+  <input class="form-control" [(ngModel)]="userName">
+  <p>Your user Name is {{ userName }}</p>
+</div>
+<button type="button" class="btn btn-success" [disabled]="userName === ''" (click)="onResetUser()">
+  {{ clickMe }}
+</button>
+

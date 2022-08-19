@@ -1,4 +1,22 @@
 
+<label>Server Name</label>
+<!--One way binding (doesn't get the property value)-->
+<!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)"> -->
+
+<!--Two way data binding: updates the property and listens for events-->
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<!-- <p>{{ serverName }}</p> -->
+
+<button class="btn btn-primary"
+[disabled]="!allowNewServer"
+(click)="onCreateServer()">Add Server</button>
+<!-- <p [innerText]="allowNewServer"></p> -->
+
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<p *ngIf="serverCreated else noServer">Server was created. Server name is: {{ serverName }}</p>
+<ng-template #noServer>
+  <p>No server was created!</p>
+</ng-template>
 <!--Here we are using the app-server selector from the server component-->
-<app-server></app-server>
-<app-server></app-server>
+<app-server *ngFor="let server of servers" [serverName]="server"></app-server>
+
